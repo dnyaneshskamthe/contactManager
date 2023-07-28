@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/contactScreens/Home';
+// import Counter from './components/Counter';
+
 
 function App() {
+  const time = 30;
+  const direction = 'clockwise';
+  const funct = () => {
+    console.log("completed");
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>My App</h2>
+      {/* <div>
+        <Counter time = {time} direction = {direction} funct = {funct} />
+      </div> */}
+      {/* <div>
+        <Counter time = {time} direction = {`anticlockwise`} funct = {funct} />
+      </div> */}
+      <div>
+        <Home/>
+      </div>
     </div>
   );
 }
