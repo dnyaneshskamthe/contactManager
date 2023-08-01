@@ -11,7 +11,7 @@ const Home = () => {
     const [userContacts, setUserContacts] = useState([])
     useEffect(()=>{
         const getAllUsers = async () =>{
-            let response = await fetch('http://localhost:5000/api/v1/getUsers',{
+            let response = await fetch(`{process.env.REACT_APP_API_URL}/api/v1/getUsers`,{
                 method : 'GET',
                 // mode :'CORS',
                 headers:{
