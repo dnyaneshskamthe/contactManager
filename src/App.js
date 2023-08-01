@@ -11,7 +11,7 @@ function App() {
   }
   return (
     <div className="App">
-      <h2>My App</h2>
+      <h2></h2>
       {/* <div>
         <Counter time = {time} direction = {direction} funct = {funct} />
       </div> */}
