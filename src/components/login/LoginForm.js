@@ -1,50 +1,49 @@
 import React, { useRef, useState } from 'react';
-import { Link , Navigate} from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const LoginForm = () => {
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const [isLoggedIn , setIsLoggedIn] = useState(false)
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleLogin = (e) => {
-      e.preventDefault();
-      // Add your login logic here
-      let email = emailRef.current.value;
-      let password = passwordRef.current.value;
-      emailRef.current.value = '';
-      passwordRef.current.value = '';
-      const login = async () =>{
-        try {
-          let response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/login`,{
-            method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ 
-                email : email,
-                password : password
-            }),
-          })
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-    
-          const data = await response.json();
-         
-          alert('Login Successful')
-          setIsLoggedIn(true);
-        } catch (error) {
-          console.error('Error registering user:', error);          
-        }
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    // Add your login logic here
+    let email = emailRef.current.value;
+    let password = passwordRef.current.value;
+    emailRef.current.value = '';
+    passwordRef.current.value = '';
+    try {
+      let response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      if (!response.ok) {
+        console.log(response);
+        throw new Error('Network response was not ok');
       }
-      login();
-    };
+
+      const data = await response.json();
+
+      alert('Login Successful');
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.error('Error logging in:', error);
+    }
+  };
 
   return (
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form onSubmit={handleLogin}>
+          
+<form onSubmit={handleLogin}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">Email:</label>
               <input
@@ -72,7 +71,7 @@ const LoginForm = () => {
           <p className="mt-3 text-center">
             New user? <Link to="/register">Register here</Link>
           </p>
-          {isLoggedIn ? <Navigate to="/home" /> : null}
+          {isLoggedIn && <Navigate to="/home" />}
         </div>
       </div>
     </div>
