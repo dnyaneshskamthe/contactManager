@@ -1,5 +1,7 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Home from './components/contactScreens/Home';
+import LandingPage from './components/login/LandingPage';
 // import Counter from './components/Counter';
 
 
@@ -19,7 +21,10 @@ function App() {
         <Counter time = {time} direction = {`anticlockwise`} funct = {funct} />
       </div> */}
       <div>
-        <Home/>
+        <BrowserRouter>
+          <LandingPage/>
+        </BrowserRouter>
+        {/* <Home/> */}
       </div>
     </div>
   );
