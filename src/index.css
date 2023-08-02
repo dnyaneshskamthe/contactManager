@@ -15,3 +15,6 @@ code {
 #userForm{
   display: none;
 }
+#editBtn, #deleteBtn{
+  cursor: pointer;
+}

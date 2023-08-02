@@ -11,7 +11,8 @@ const AddContact = () => {
         const postData = async () => {
           const uName = nameRef.current.value;
           const uContact = contactRef.current.value;
-
+          nameRef.current.value = "";
+          contactRef.current.value = "";
       
           // Basic validation - ensure name and contact are provided
           if (!uName || !uContact) {
@@ -20,7 +21,7 @@ const AddContact = () => {
           }
       
           try {
-            const response = await fetch(`{process.env.REACT_APP_API_URL}/api/v1/addUser`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/addUser`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
