@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate,Link } from 'react-router-dom';
 
 const RegistrationForm = () => {
     const nameRef = useRef();
@@ -51,12 +51,13 @@ const RegistrationForm = () => {
 
   return (
     <div className="container">
+      <h1 className="text-secondary">The Contact Manager </h1>
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <h2 className="text-center mb-4">Registration</h2>
-          <form onSubmit={handleRegistration}>
-            <div className="mb-3">
-              <label htmlFor="username" className="form-label">Username:</label>
+          <form onSubmit={handleRegistration} className='mt-5'>
+            <div className="mb-3 row mx-4">
+              <label htmlFor="username" className="col-sm-4 fw-bold">Username</label>
+              <div className='col-sm-8'>
               <input
                 type="text"
                 className="form-control"
@@ -65,9 +66,11 @@ const RegistrationForm = () => {
                 ref = {nameRef}
                 required
               />
+              </div>
             </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email:</label>
+            <div className="mb-3 row mx-4">
+              <label htmlFor="email" className="col-sm-4 fw-bold">Email</label>
+              <div className='col-sm-8'>
               <input
                 type="email"
                 className="form-control"
@@ -75,10 +78,11 @@ const RegistrationForm = () => {
                 placeholder="Enter your email"
                 ref = {emailRef}
                 required
-              />
+              /></div>
             </div>
-            <div className="mb-3">
-              <label htmlFor="contact" className="form-label">Contact:</label>
+            <div className="mb-3 row mx-4">
+              <label htmlFor="contact" className="col-sm-4 fw-bold">Contact</label>
+              <div className='col-sm-8'>
               <input
                 type="text"
                 className="form-control"
@@ -87,9 +91,11 @@ const RegistrationForm = () => {
                 ref = {contactRef}
                 required
               />
+              </div>
             </div>
-            <div className="mb-3">
-              <label htmlFor="pass" className="form-label">Password:</label>
+            <div className="mb-3 row mx-4">
+              <label htmlFor="pass" className="col-sm-4 fw-bold">Password</label>
+              <div className='col-sm-8'>
               <input
                 type="password"
                 className="form-control"
@@ -98,9 +104,13 @@ const RegistrationForm = () => {
                 ref = {passRef}
                 required
               />
+              </div>
             </div>
             <button type="submit" className="btn btn-primary">Register</button>
           </form>
+          <p className="mt-3 text-center">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
         </div>
       </div>
       {isRegistered ? <Navigate to="/login" /> : null}
