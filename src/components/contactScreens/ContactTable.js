@@ -5,6 +5,7 @@ const ContactTable = () => {
     const [editingUserId, setEditingUserId] = useState(null);
     const [updatedName, setUpdatedName] = useState('');
     const [updatedContact, setUpdatedContact] = useState('');
+    const token = localStorage.getItem('token');
 
     //delete user logic
     const handleDelete = async (userId) =>{
@@ -13,6 +14,7 @@ const ContactTable = () => {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
               },
               body: JSON.stringify({ id: userId }), // Send the user ID in the request body
             });
@@ -52,6 +54,7 @@ const ContactTable = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             id: userId,
@@ -81,7 +84,8 @@ const ContactTable = () => {
             // mode :'CORS',
             headers:{
                 'Access-Control-Allow-Origin':'*',
-                "Access-Control-Allow-Credentials" : true 
+                "Access-Control-Allow-Credentials" : true ,
+                Authorization: `Bearer ${token}`,
             }
         })
         let actualData = await response.json();

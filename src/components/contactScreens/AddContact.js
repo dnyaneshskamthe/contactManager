@@ -5,6 +5,11 @@ const AddContact = () => {
     const [newContact, setNewContact] = useState({})
     const nameRef = useRef();
     const contactRef = useRef();
+    const token = localStorage.getItem('token');
+    if (!token) {
+      // write logout logic
+      return;
+    }
 
     const addUserContact = (e) => {    
         e.preventDefault();
@@ -25,6 +30,7 @@ const AddContact = () => {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
               },
               body: JSON.stringify({ name: uName, contact: uContact }),
             });

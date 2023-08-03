@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div className='container container-fluide'>
       <div className=''>
-        <h2>Welcome to the contact manager</h2>
+        <h2 className='text-success'>Welcome to the contact manager</h2>
       </div>
       <Routes>
       <Route path="/" element={<LoginForm />} />

@@ -30,7 +30,8 @@ const LoginForm = () => {
       }
 
       const data = await response.json();
-
+      // Store the token in the local storage
+      localStorage.setItem('token', data.token);
       alert('Login Successful');
       setIsLoggedIn(true);
     } catch (error) {
