@@ -7,9 +7,6 @@ import Home from '../contactScreens/Home';
 const LandingPage = () => {
   return (
     <div className='container container-fluide'>
-      <div className=''>
-        <h2 className='text-success'>Welcome to the contact manager</h2>
-      </div>
       <Routes>
       <Route path="/" element={<LoginForm />} />
         <Route path="/login" element={<LoginForm />} />

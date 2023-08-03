@@ -7,6 +7,7 @@ const Home = () => {
     
   return (
     <div className='container container-fluide'>
+        <h1 className='text-light bg-secondary'>Welcome to the contact manager</h1>
         <div className='card'>
             <div className='mt-2'>
                 <h3 className='text-muted'>All Contacts</h3>

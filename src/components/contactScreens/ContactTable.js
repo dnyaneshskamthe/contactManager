@@ -96,7 +96,7 @@ const ContactTable = () => {
     useEffect(()=>{fetchUpdatedData();},[contacts])
   return (
     <div className='container-fluide'>
-        <table className="table">
+        <table className="table table-hover">
             <thead>
                 <tr>
                     <th scope="col">Sr.No</th>
