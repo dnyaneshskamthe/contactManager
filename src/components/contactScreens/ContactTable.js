@@ -126,8 +126,8 @@ const ContactTable = () => {
                         />
                     </td>
                     <td>
-                        <button onClick={() => handleUpdate(item._id)}>Update</button>
-                        <button onClick={() => cancelEdit()}>Cancel</button>
+                        <button className= "btn btn-sm btn-success " onClick={() => handleUpdate(item._id)}>Update</button>
+                        <button className= "ms-2 btn btn-sm btn-danger" onClick={() => cancelEdit()}>Cancel</button>
                     </td>
                     </>
                 ) : (

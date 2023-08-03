@@ -17,9 +17,9 @@ const Home = () => {
             <div>
                 <AddContact/>
             </div>
-            <div>
-                <LogOut/>
-            </div>
+        </div>
+        <div>
+            <LogOut/>
         </div>
     </div>
   )
